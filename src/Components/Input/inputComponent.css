@@ -1,0 +1,7 @@
+.inputfields {
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 1rem;
+    margin: 5px;
+    font-size: large;
+}

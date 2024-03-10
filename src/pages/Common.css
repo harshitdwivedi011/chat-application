@@ -1,0 +1,31 @@
+.form-register,
+.form-login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: larger;
+    width: 25%;
+    height: auto;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(104, 143, 178);
+    height: 98vh;
+}
+
+.header {
+    font-weight: 700;
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sub-header {
+    font-weight: 600;
+    font-size: large;
+}
