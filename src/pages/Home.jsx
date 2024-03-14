@@ -1,16 +1,15 @@
 import React from 'react'
-import './Common.css'
-import Login from './Login';
-import { Route, Routes } from 'react-router-dom';
-import Register from './Register';
+import Sidebar from '../Components/SideBar/Sidebar'
+import ChatComponent from '../Components/chat/ChatComponent'
+import './Common.css';
 
 const Home = () => {
     return (
-        <div className='parent'>
-            <Routes>
-                <Route path='/' element={<Login />} />
-                <Route path='/register' element={<Register />} />
-            </Routes>
+        <div className="home-wrapper">
+            <div className='chat-window'>
+                <Sidebar />
+                <ChatComponent />
+            </div>
         </div>
     )
 }

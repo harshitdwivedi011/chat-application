@@ -1,5 +1,5 @@
 let constants = {
-    appName: "Real Chat Application",
+    appName: "Chat App",
     register: "Register",
     login: "Login"
 }

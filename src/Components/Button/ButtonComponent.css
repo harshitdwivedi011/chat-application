@@ -1,9 +1,11 @@
 .buttons {
     cursor: pointer;
-    background-color: rgb(104, 143, 178);
+    background-color: #9f9dd5;
     padding: 10px;
     margin: 10px;
     outline: none;
+    border: none;
+    border-radius: 5px;
     font-weight: 700;
     font-size: medium;
 }
