@@ -1,0 +1,70 @@
+.form-register,
+.form-login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: larger;
+    width: 25%;
+    height: auto;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9f9dd5;
+    height: 98vh;
+}
+
+.header {
+    font-weight: 700;
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sub-header {
+    font-weight: 600;
+    font-size: large;
+}
+
+#file {
+    border: none;
+    display: none;
+}
+
+#blob-input {
+    padding: 10px;
+    font-size: larger;
+    font-weight: 500;
+    position: relative;
+    left: -9rem;
+    cursor: pointer;
+}
+
+#blob-input img {
+    width: 1.6rem;
+    position: relative;
+    top: 5px;
+}
+
+
+
+.home-wrapper {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 98vh;
+    width: 70vw;
+
+
+    .chat-window {
+        border-radius: 10px;
+        width: 100%;
+        height: 80%;
+        display: flex;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
