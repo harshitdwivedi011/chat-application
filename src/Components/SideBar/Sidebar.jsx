@@ -5,6 +5,8 @@ import ButtonComponent from '../Button/ButtonComponent'
 import SearchComponent from '../Input/SearchComponent'
 import UserPanel from './UserPanel';
 import './Sidebar.css'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
 const Sidebar = () => {
     return (
         <div id="root-sidebar">
@@ -14,7 +16,7 @@ const Sidebar = () => {
                     <span id='user-info'>
                         <img src={person} alt="" />
                         <span id='logged-user'>Harshit</span>
-                        <ButtonComponent type="button" id="button" text="Log Out" />
+                        <ButtonComponent type="button" id="button" text="Log Out" onClick={() => signOut(auth)} />
                     </span>
                 </div>
                 <SearchComponent />

@@ -9,6 +9,12 @@
     font-size: larger;
     width: 25%;
     height: auto;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 .parent {
