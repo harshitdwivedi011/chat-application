@@ -55,3 +55,34 @@
         }
     }
 }
+
+.userChat {
+    display: flex;
+    padding: 1rem;
+    font-weight: 700;
+    color: white;
+    align-items: center;
+    gap: 20px;
+    font-size: larger;
+    cursor: pointer;
+
+    img {
+        padding-right: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+}
+
+.userChat:hover {
+    background-color: #2f2d52;
+}
+
+.results {
+    font-weight: 700;
+    color: white;
+    padding: 1rem;
+    font-size: larger;
+}

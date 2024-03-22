@@ -69,6 +69,7 @@
             .last-seen {
                 color: grey;
                 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: smaller;
             }
 
             img {
@@ -88,13 +89,25 @@
 
             p {
                 background-color: white;
-                padding: 10px 20px;
+                padding: 18px 20px;
                 border-radius: 0px 10px 10px 10px;
                 max-width: max-content;
+                position: relative;
+                font-size: large;
             }
 
             img {
                 width: 50%;
+                border-radius: 10px;
+            }
+
+            .message-time {
+                color: #626262;
+                font-size: smaller;
+                position: absolute;
+                padding: 3px 3px;
+                right: 0;
+                bottom: 0;
             }
         }
 
