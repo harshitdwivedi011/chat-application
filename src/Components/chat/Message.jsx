@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useRef } from 'react'
 import './chatcomponent.css';
 import { AuthContext } from '../Context/AuthContext';
 import { ChatContext } from '../Context/ChatContext';
+import bin from '../../Images/bin.png';
+import { arrayRemove, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
+import { toast } from 'react-toastify'
 const Message = ({ message, date }) => {
     const { currentUser } = useContext(AuthContext);
     const { data } = useContext(ChatContext);
@@ -9,7 +13,6 @@ const Message = ({ message, date }) => {
     useEffect(() => {
         ref.current?.scrollIntoView({ behavior: "smooth" })
     }, [message])
-    // console.log(date.toDate(), "messa");
 
     const formatDate = (inputdate) => {
         const processedDate = inputdate.toDate(); // Convert inputDate to a JavaScript Date object
@@ -27,6 +30,17 @@ const Message = ({ message, date }) => {
         const showTime = `${hours}:${minutes}:${seconds}`;
         return [showDate, showTime];
     }
+    const handleDeleteMessage = async () => {
+        try {
+            const chatRef = doc(db, 'chats', data.chatId);
+            await updateDoc(chatRef, {
+                messages: arrayRemove(message) // Remove the message from the messages array
+            });
+        } catch (error) {
+            toast.error("Please try again");
+            console.log(error)
+        }
+    };
     const [showDate, showTime] = formatDate(date);
     return (
         <div ref={ref}
@@ -45,6 +59,9 @@ const Message = ({ message, date }) => {
                 {message.img &&
                     <img src={message.img} alt="" />}
             </div>
+            <button type="submit" className='delete-Message' onClick={handleDeleteMessage}>
+                <img src={bin} alt="" />
+            </button>
         </div>
     )
 }

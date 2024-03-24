@@ -3,13 +3,24 @@
     /* margin-top: 1.2rem; */
     height: 70px;
     border-top-right-radius: 10px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     background-color: #444080;
+    position: relative;
+
+    .chat-user {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+        padding: 10px;
+    }
 
     .options {
         display: flex;
         gap: 10px;
+        position: absolute;
+        right: 0;
 
         img {
             height: 24px;
@@ -23,7 +34,6 @@
         font-weight: 700;
         color: white;
         padding: 0.25rem;
-        padding-left: 10px;
     }
 }
 
@@ -59,8 +69,9 @@
 
     .message {
         display: flex;
-        gap: 20px;
+        gap: 15px;
         margin-bottom: 20px;
+        align-items: center;
 
         .messageInfo {
             display: flex;
@@ -109,6 +120,7 @@
                 right: 0;
                 bottom: 0;
             }
+
         }
 
         &.owner {
@@ -124,6 +136,20 @@
                 }
             }
 
+        }
+
+        .delete-Message {
+            width: 40px;
+            height: 40px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .delete-Message:hover {
+            background-color: rgb(252, 111, 111);
+            border-radius: 20%;
         }
     }
 }

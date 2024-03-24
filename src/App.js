@@ -4,6 +4,9 @@ import Register from "./pages/Register";
 import Home from './pages/Home';
 import { useContext } from 'react';
 import { AuthContext } from './Components/Context/AuthContext';
+import ResetPassword from './pages/ResetPassword';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -23,7 +26,9 @@ function App() {
           </ProtectedRoute>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/reset' element={<ResetPassword />} />
         </Routes>
+        <ToastContainer />
       </div>
     </Router>
   );

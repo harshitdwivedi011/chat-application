@@ -30,7 +30,7 @@ const UserPanel = () => {
     return (
         <div className='panelList'>
             {Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
-                <span span className='panels' key={chat[0]} onClick={() => handleSelect(chat[1].userInfo)}>
+                <span className='panels' key={chat[0]} onClick={() => handleSelect(chat[1].userInfo)}>
                     <img src={chat[1].userInfo.photoURL} alt="" />
                     <span className='panel'>
                         <p style={{ fontWeight: 600, fontSize: "larger" }}>{chat[1].userInfo.displayName}</p>

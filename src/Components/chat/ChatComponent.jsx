@@ -13,7 +13,12 @@ const ChatComponent = () => {
     const [messages, setMessages] = useState([]);
     useEffect(() => {
         const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
-            doc.exists() && setMessages(doc.data().messages)
+            if (doc.exists()) {
+                setMessages(doc.data().messages)
+            }
+            else {
+                setMessages([])
+            }
         })
         return () => {
             unsub();
@@ -23,6 +28,7 @@ const ChatComponent = () => {
     return (
         <div className="chat-body">
             <div className='chat-header'>
+                <img src={data.user?.photoURL} alt='' className='chat-user' />
                 <p className='current-user'>{data.user?.displayName}</p>
                 <span className='options'>
                     <img src={videoCall} alt="" />

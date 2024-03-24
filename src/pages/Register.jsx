@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputComponent from '../Components/Input/InputComponent';
 import ButtonComponent from '../Components/Button/ButtonComponent';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -6,11 +6,21 @@ import { auth, db, storage } from '../firebase'
 import constants from '../constants';
 import { doc, setDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import './Common.css';
+import './common.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import add from '../Images/addAvatar.png'
 const Register = () => {
     const navigate = useNavigate();
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [fileSelected, setFileSelected] = useState(false);
+    const handleFileChange = async (e) => {
+        e.preventDefault();
+        const file = e.target.files[0];
+        if (file) {
+            setSelectedFile(file);
+            setFileSelected(true);
+        }
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         const username = e.target[0].value;
@@ -60,10 +70,12 @@ const Register = () => {
                 <InputComponent type="text" id="name" placeholder="Enter Name" />
                 <InputComponent type="email" id="email" placeholder='Enter Email Address' />
                 <InputComponent type="password" id="password" placeholder='Enter Password' />
-                <InputComponent type="file" id="file" />
+                <InputComponent type="file" id="file" onChange={handleFileChange} />
                 <label htmlFor="file" id='blob-input'>
                     <img src={add} alt="" />
-                    <span> Add an avatar</span>
+                    {fileSelected ? <span>{selectedFile?.name}</span>
+                        : <span>Add an avatar</span>
+                    }
                 </label>
                 <ButtonComponent type="submit" id="register" text="Register" />
             </form>

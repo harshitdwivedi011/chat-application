@@ -1,7 +1,8 @@
 let constants = {
     appName: "Chat App",
     register: "Register",
-    login: "Login"
+    login: "Login",
+    reset: "Reset Password"
 }
 
 export default constants;

@@ -3,7 +3,6 @@ import InputComponent from './InputComponent'
 import './inputComponent.css';
 import ButtonComponent from '../Button/ButtonComponent';
 import attach_file from '../../Images/attach_file.png';
-import shadow_add from '../../Images/shadow_add.png';
 import { AuthContext } from '../Context/AuthContext';
 import { ChatContext } from '../Context/ChatContext';
 import { Timestamp, arrayUnion, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
@@ -17,6 +16,13 @@ const ChatInput = () => {
     const [img, setImg] = useState(null);
     const { currentUser } = useContext(AuthContext);
     const { data } = useContext(ChatContext);
+    const handleFileChange = async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImg(file);
+            setText(prevText => prevText + (prevText ? ", " : "") + file.name);
+        }
+    }
     const handleSend = async () => {
         if (img) {
             const storageRef = ref(storage, uuid());
@@ -70,13 +76,9 @@ const ChatInput = () => {
         <div id="enter-message">
             <InputComponent type="text" placeholder="Type something..." id="enter-text" onChange={e => setText(e.target.value)} value={text} />
             <div className='send'>
-                <InputComponent type="file" id="file" onChange={e => setImg(e.target.files[0])} />
+                <InputComponent type="file" id="file" onChange={handleFileChange} />
                 <label htmlFor="file">
                     <img src={attach_file} alt="" />
-                </label>
-                <InputComponent type="file" id="file" />
-                <label htmlFor="file">
-                    <img src={shadow_add} alt="" />
                 </label>
 
                 <ButtonComponent text="Send" onClick={handleSend} />

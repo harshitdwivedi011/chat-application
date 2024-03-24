@@ -14,6 +14,12 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+
+        .forget-password {
+            text-align: right;
+            padding-right: 10px;
+            color: rgb(154, 54, 54);
+        }
     }
 }
 
@@ -42,18 +48,19 @@
 }
 
 #blob-input {
+    display: flex;
+    align-items: center;
     padding: 10px;
     font-size: larger;
     font-weight: 500;
-    position: relative;
-    left: -9rem;
+    text-align: left;
     cursor: pointer;
+    gap: 5px;
 }
 
 #blob-input img {
-    width: 1.6rem;
-    position: relative;
-    top: 5px;
+    width: 24px;
+    height: 24px;
 }
 
 
